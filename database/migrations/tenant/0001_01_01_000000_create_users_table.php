@@ -7,14 +7,19 @@ use Illuminate\Support\Facades\Schema;
 return new class extends Migration
 {
     /**
-     * Run the migrations.
+     * Tabla de usuarios — vive en la BD de cada tenant (empresa).
+     * Cada empresa tiene su propio set de usuarios independiente.
+     *
+     * Login por nomusuario (no por email) — decisión de negocio:
+     * el nombre de usuario es definido por el administrador de cada
+     * empresa, sin depender de que el usuario tenga un correo válido.
      */
     public function up(): void
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('email')->unique();
+            $table->string('nomusuario')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();
@@ -22,20 +27,15 @@ return new class extends Migration
         });
 
         Schema::create('password_reset_tokens', function (Blueprint $table) {
-            $table->string('email')->primary();
+            $table->string('nomusuario')->primary();
             $table->string('token');
             $table->timestamp('created_at')->nullable();
         });
-
     }
 
-    /**
-     * Reverse the migrations.
-     */
     public function down(): void
     {
-        Schema::dropIfExists('users');
         Schema::dropIfExists('password_reset_tokens');
-
+        Schema::dropIfExists('users');
     }
 };

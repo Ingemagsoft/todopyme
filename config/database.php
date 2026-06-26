@@ -79,6 +79,7 @@ return [
             'host'      => env('DB_HOST', '127.0.0.1'),
             'port'      => env('DB_PORT', '3306'),
             'database'  => '',          // ← vacío — el Middleware lo llena en cada petición
+            //'database'  => env('DB_TENANT_DATABASE', ''),         // ← Para conectar directamente con las BD tenant del .env
             'username'  => env('DB_USERNAME', 'root'),
             'password'  => env('DB_PASSWORD', ''),
             'unix_socket' => env('DB_SOCKET', ''),
