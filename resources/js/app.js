@@ -164,10 +164,10 @@ class App {
             document.querySelectorAll('.side-nav .collapse').forEach(function (menu) {
                 menu.addEventListener('show.bs.collapse', function (event) {
                     document.querySelectorAll('.side-nav .collapse.show').forEach(function (openMenu) {
-                        if (openMenu !== event.target) {
-                            let collapseInstance = bootstrap.Collapse.getInstance(openMenu)
-                                                  || new bootstrap.Collapse(openMenu, { toggle: false });
-                            collapseInstance.hide();
+                    // Nuevo: si openMenu es ANCESTRO del menu que se está abriendo, no lo cerramos
+                    if (openMenu !== event.target && !openMenu.contains(event.target)) {
+                        let collapseInstance = bootstrap.Collapse.getInstance(openMenu);
+                        if (collapseInstance) collapseInstance.hide();
                         }
                     });
                 });

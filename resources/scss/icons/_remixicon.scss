@@ -8,13 +8,11 @@
 *
 * Date: 2024-10-28
 */
-@font-face {font-family: "remixicon";
-  src: url('../fonts/remixicon.eot?t=1730118419915'); /* IE9*/
-  src: url('../fonts/remixicon.eot?t=1730118419915#iefix') format('embedded-opentype'), /* IE6-IE8 */
-  url("../fonts/remixicon.woff2?t=1730118419915") format("woff2"),
-  url("../fonts/remixicon.woff?t=1730118419915") format("woff"),
-  url('../fonts/remixicon.ttf?t=1730118419915') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
-  url('../fonts/remixicon.svg?t=1730118419915#remixicon') format('svg'); /* iOS 4.1- */
+@font-face {
+  font-family: "remixicon";
+  src: url("../fonts/remixicon.woff2") format("woff2"),
+    url("../fonts/remixicon.woff") format("woff"),
+    url("../fonts/remixicon.ttf") format("truetype");
 }
 
 [class^="ri-"], [class*=" ri-"] {
