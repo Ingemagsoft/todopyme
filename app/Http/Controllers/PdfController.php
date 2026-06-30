@@ -6,8 +6,16 @@ use App\Models\ClienteModel;
 use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Http\Request;
 
+/**
+ * Controlador centralizado de generación de PDFs.
+ * Un método por tipo de documento — patrón ya usado en click-pyme (Beta 4).
+ */
 class PdfController extends Controller
 {
+    /**
+     * Genera el listado de clientes activos en PDF, con el mismo filtro
+     * de búsqueda que el listado web (ClienteController::index).
+     */
     public function clientes(Request $request)
     {
         $busqueda = trim($request->input('busqueda', ''));

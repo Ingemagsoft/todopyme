@@ -26,7 +26,7 @@
 
                     {{-- Formulario de búsqueda progresiva --}}
                     <form method="GET" action="{{ route('clientes.index') }}" class="row g-2 mb-3">
-                        <div class="col-md-6">
+                        <div class="col-md-5">
                             <input
                                 type="text"
                                 name="busqueda"
@@ -52,7 +52,7 @@
                                 </label>
                             </div>
                         </div>
-                        <div class="col-md-3 d-flex gap-2">
+                        <div class="col-md-4 d-flex gap-2 flex-wrap">
                             <button type="submit" class="btn btn-outline-primary">
                                 <i class="ri-search-line align-middle"></i> Buscar
                             </button>
@@ -61,6 +61,10 @@
                                     Limpiar
                                 </a>
                             @endif
+                                <a href="{{ route('clientes.pdf', ['busqueda' => $busqueda]) }}"
+                                    target="_blank" class="btn btn-outline-secondary">
+                                    <i class="ri-file-pdf-line align-middle"></i> PDF
+                                </a>
                         </div>
                     </form>
 
