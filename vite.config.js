@@ -33,6 +33,7 @@ export default defineConfig({
                 //js
                 "resources/js/app.js",
                 "resources/js/config.js",
+                "resources/js/clientes_form.js",
                 "resources/js/pages/dashboard.js",
                 "resources/js/pages/apps-calendar.js",
                 "resources/js/pages/apps-chat.js",
